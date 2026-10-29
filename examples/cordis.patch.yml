@@ -1,0 +1,26 @@
+# Desktop (Electron) — primary setup when the app cannot see your shell.
+# Paste into ~/.dsh/profiles/desktop/cordis.patch.yml.
+# Do not use launchctl setenv. Do not commit this file after you fill it in.
+#
+# A row with this id replaces the WHOLE plugin config. Restate every key.
+# `name` must stay `dsh-rootflowai-image`.
+# Copy values out of ~/.dsh/secrets/rootflowai-image.env. The plugin does not
+# read that file itself.
+- id: dsh-rootflowai-image
+  name: dsh-rootflowai-image
+  config:
+    host: 127.0.0.1
+    port: 8794
+    token: ''
+    apiKey: ''
+    baseUrl: https://us.rootflowai.com/v1
+    defaultModel: gemini-3.1-flash-image-count
+    ipAssetsDir: ''
+    cacheDir: ''
+    timeoutMs: 900000
+    notionToken: ''
+    notionParentPageId: ''
+    notionDatabaseId: ''
+    styleNote: ''
+    refMap: {}
+    maxBodyBytes: 20971520

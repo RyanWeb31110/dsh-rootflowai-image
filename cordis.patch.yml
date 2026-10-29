@@ -1,0 +1,25 @@
+# Shipped default. Reads ROOTFLOWAI_IMAGE_* so `dsh web` can be configured from the shell.
+# Desktop (Electron) does not see that environment. Override this id in
+# ~/.dsh/profiles/desktop/cordis.patch.yml with literals. See examples/cordis.patch.yml.
+# Secrets belong in ~/.dsh/secrets/rootflowai-image.env. Source that file for
+# `dsh web`, or copy the values into the desktop patch. Never commit the filled file.
+# A later patch that targets id dsh-rootflowai-image replaces this whole config.
+- insert:
+    - id: dsh-rootflowai-image
+      name: dsh-rootflowai-image
+      config:
+        host: !!js process.env.ROOTFLOWAI_IMAGE_BIND ?? '127.0.0.1'
+        port: !!js Number(process.env.ROOTFLOWAI_IMAGE_PORT ?? 8794)
+        token: !!js process.env.ROOTFLOWAI_IMAGE_HTTP_TOKEN ?? ''
+        apiKey: !!js process.env.ROOTFLOWAI_IMAGE_API_KEY ?? ''
+        baseUrl: !!js process.env.ROOTFLOWAI_IMAGE_BASE_URL ?? 'https://us.rootflowai.com/v1'
+        defaultModel: !!js process.env.ROOTFLOWAI_IMAGE_DEFAULT_MODEL ?? 'gemini-3.1-flash-image-count'
+        ipAssetsDir: !!js process.env.ROOTFLOWAI_IP_ASSETS_DIR ?? ''
+        cacheDir: !!js process.env.ROOTFLOWAI_IMAGE_CACHE_DIR ?? ''
+        timeoutMs: !!js Number(process.env.ROOTFLOWAI_IMAGE_TIMEOUT_MS ?? 900000)
+        notionToken: !!js process.env.NOTION_TOKEN ?? ''
+        notionParentPageId: !!js process.env.NOTION_PARENT_PAGE_ID ?? ''
+        notionDatabaseId: !!js process.env.NOTION_DATABASE_ID ?? ''
+        styleNote: !!js process.env.ROOTFLOWAI_IMAGE_STYLE_NOTE ?? ''
+        refMap: {}
+        maxBodyBytes: 20971520

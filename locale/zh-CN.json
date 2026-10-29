@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "RootFlowAI 计次生图",
+    "description": "用 RootFlowAI 计次生图接口为文章草稿生成配图，保存到本地，供手发。不自动发布。"
+  }
+}
